@@ -1,12 +1,11 @@
--- Employee Appraisal System - Database Setup
+# Employee Appraisal System - Database Setup
 
--- Appraisal Table -- Employee Table -- Review Table -- Band Table
-
-= ============================================================================================================= 
-= ============================================ Appraisal Table =============================================
-=============================================================================================================== 
-
---- Schema
+## Appraisal Table
+## Employee Table
+## Review Table
+## Band Table
+ 
+### Appraisal Table  
 
 CREATE TABLE IF NOT EXISTS public.appraisal (
     emp_id integer NOT NULL,
@@ -19,10 +18,7 @@ CREATE TABLE IF NOT EXISTS public.appraisal (
     CONSTRAINT "Appraisal_pkey" PRIMARY KEY (emp_id)
 );
 
- =============================================================================================================
-==== =================================== Sample Data For Appraisal Table  ====================================
-=============================================================================================================
-
+### Sample Data For Appraisal Table  
 
 INSERT INTO public.appraisal(emp_id, emp_name, emp_review, emp_band, current_salary, appraisal_percentage, appraised_salary)
 VALUES
@@ -33,11 +29,9 @@ VALUES
 (5, 'Ravi Patel', 4, 'B2', 55000, 9, 60000);
 
 
-===============================================================================================================
-==============================================   Employee Table  ==============================================
-===============================================================================================================
+### Employee Table
 
-```Schema
+
 CREATE TABLE IF NOT EXISTS public.employee (
     emp_id INTEGER NOT NULL,
     emp_name TEXT COLLATE pg_catalog."default",
@@ -47,9 +41,7 @@ CREATE TABLE IF NOT EXISTS public.employee (
     CONSTRAINT employee_pkey PRIMARY KEY (emp_id)
 );
 
-===============================================================================================================
-======================================== Sample Data For Employee Table  ======================================
-===============================================================================================================
+### Sample Data For Employee Table
 
 INSERT INTO public.employee(emp_id, emp_name, emp_review, emp_band, emp_salary)
 VALUES
@@ -64,23 +56,18 @@ VALUES
 (9, 'Anjali Reddy', 3, 'C1', 47000),
 (10, 'Karan Singh', 4, 'A2', 65000);
 
-===============================================================================================================
-=================================================   Review Table  =============================================
-===============================================================================================================
+### Review Table
 
 Defination:
 Defines review levels and their impact on appraisal.
-Schema
+
 CREATE TABLE IF NOT EXISTS public.review (
     rev_id INTEGER NOT NULL,
     rev_mul DOUBLE PRECISION,
     CONSTRAINT review_pkey PRIMARY KEY (rev_id)
 );
 
-===============================================================================================================
-========================================== Sample Data For Review Table  ======================================
-===============================================================================================================
-
+### Sample Data For Review Table
 
 INSERT INTO public.review(rev_id, rev_mul)
 VALUES
@@ -90,10 +77,7 @@ VALUES
 (4, 1.0);
 (5, 1.0);
 
-===============================================================================================================
-==================================================  Band Table  ===============================================
-===============================================================================================================
-
+### Band Table
 
 Description
 Maps employee bands to appraisal multipliers.
@@ -105,9 +89,7 @@ Schema
     CONSTRAINT band_pkey PRIMARY KEY (band_id)
 );
 
-===============================================================================================================
-=========================================== Sample Data For Band Table  =======================================
-===============================================================================================================
+### Sample Data For Band Table
 
 INSERT INTO public.band(band_id, band_mul)
 VALUES
@@ -116,3 +98,4 @@ VALUES
 ('B1', 1.0),
 ('B2', 0.9),
 ('C1', 0.8);
+
